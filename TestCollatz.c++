@@ -29,11 +29,17 @@ using namespace std;
 // read
 // ----
 
-TEST(CollatzFixture, read) {
+TEST(CollatzFixture, read_1) {
     string s("1 10\n");
     const pair<int, int> p = collatz_read(s);
     ASSERT_EQ( 1, p.first);
     ASSERT_EQ(10, p.second);}
+
+TEST(CollatzFixture, read_2) {
+    string s("10 1\n");
+    const pair<int, int> p = collatz_read(s);
+    ASSERT_EQ(10, p.first);
+    ASSERT_EQ( 1, p.second);}
 
 // ----
 // eval
@@ -55,24 +61,45 @@ TEST(CollatzFixture, eval_4) {
     const int v = collatz_eval(900, 1000);
     ASSERT_EQ(174, v);}
 
+TEST(CollatzFixture, eval_5) {
+    const int v = collatz_eval(1, 999999);
+    ASSERT_EQ(525, v);}
+
 // -----
 // print
 // -----
 
-TEST(CollatzFixture, print) {
+TEST(CollatzFixture, print_1) {
     ostringstream w;
     collatz_print(w, 1, 10, 20);
     ASSERT_EQ("1 10 20\n", w.str());}
+
+TEST(CollatzFixture, print_2) {
+    ostringstream w;
+    collatz_print(w, 10, 1, 20);
+    ASSERT_EQ("10 1 20\n", w.str());}
 
 // -----
 // solve
 // -----
 
-TEST(CollatzFixture, solve) {
+TEST(CollatzFixture, solve_1) {
     istringstream r("1 10\n100 200\n201 210\n900 1000\n");
     ostringstream w;
     collatz_solve(r, w);
     ASSERT_EQ("1 10 20\n100 200 125\n201 210 89\n900 1000 174\n", w.str());}
+
+TEST(CollatzFixture, solve_2) {
+    istringstream r("10 1\n200 100\n210 201\n1000 900\n");
+    ostringstream w;
+    collatz_solve(r, w);
+    ASSERT_EQ("10 1 20\n200 100 125\n210 201 89\n1000 900 174\n", w.str());}
+
+TEST(CollatzFixture, solve_3) {
+    istringstream r("1 999999\n");
+    ostringstream w;
+    collatz_solve(r, w);
+    ASSERT_EQ("1 999999 525\n", w.str());}
 
 /*
 % ls -al /usr/include/gtest/
