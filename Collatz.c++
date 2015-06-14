@@ -13,6 +13,7 @@
 #include <sstream>  // istringstream
 #include <string>   // getline, string
 #include <utility>  // make_pair, pair
+#include <climits>	// INT_MAX
 
 #include "Collatz.h"
 
@@ -49,9 +50,15 @@ int collatz_eval (int i, int j) {
 int cycle_length (int n) {
     int count = 1;
     while (n > 1) {
-    	if (n % 2 == 1)
+    	if (n % 2 == 1) {
+    		// n is odd
+    		if (n > (INT_MAX - 1)/3)
+    			// causes overflow, should be invalid input
+    			return -1;	// produces an invalid output
     		n = 3*n + 1;
+    	}
     	else
+    		// n is even
     		n = n/2;
     	++count;
     }
@@ -75,5 +82,6 @@ void collatz_solve (istream& r, ostream& w) {
         const pair<int, int> p = collatz_read(s);
         const int            i = p.first;
         const int            j = p.second;
-        const int            v = collatz_eval(i, j);
+        // pass to collatz_eval so first number < second to avoid duplicate code
+        const int            v = (i < j) ? collatz_eval(i, j) : collatz_eval(j, i);
         collatz_print(w, i, j, v);}}

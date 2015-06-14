@@ -63,7 +63,7 @@ TEST(CollatzFixture, eval_4) {
 
 TEST(CollatzFixture, eval_5) {
     const int v = collatz_eval(1, 999999);
-    ASSERT_EQ(525, v);}
+    ASSERT_EQ(476, v);}	// actual is 525, but maximum valid (non-overflowing) is 476
 
 // -----
 // print
@@ -99,7 +99,7 @@ TEST(CollatzFixture, solve_3) {
     istringstream r("1 999999\n");
     ostringstream w;
     collatz_solve(r, w);
-    ASSERT_EQ("1 999999 525\n", w.str());}
+    ASSERT_EQ("1 999999 476\n", w.str());}	// actual is 525, but maximum valid (non-overflowing) is 476
 
 /*
 % ls -al /usr/include/gtest/
