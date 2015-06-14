@@ -66,30 +66,30 @@ TEST(CollatzFixture, eval_5) {
     ASSERT_EQ(476, v);}	// actual is 525, but maximum valid (non-overflowing) is 476
 
 // ----
-// eval
+// cycle_length
 // ----
 
-TEST(CollatzFixture, eval_1) {
+TEST(CollatzFixture, cycle_length_1) {
     const int v = cycle_length(1);
     ASSERT_EQ(1, v);}
 
-TEST(CollatzFixture, eval_2) {
+TEST(CollatzFixture, cycle_length_2) {
     const int v = cycle_length(5);
     ASSERT_EQ(6, v);}
 
-TEST(CollatzFixture, eval_3) {
+TEST(CollatzFixture, cycle_length_3) {
     const int v = cycle_length(10);
     ASSERT_EQ(7, v);}
 
-TEST(CollatzFixture, eval_4) {
+TEST(CollatzFixture, cycle_length_4) {
     const int v = cycle_length(524288);
     ASSERT_EQ(20, v);}
 
-TEST(CollatzFixture, eval_5) {
+TEST(CollatzFixture, cycle_length_5) {
     const int v = cycle_length(27);
     ASSERT_EQ(112, v);}
 
-TEST(CollatzFixture, eval_6) {
+TEST(CollatzFixture, cycle_length_6) {
     const int v = cycle_length(837799);
     ASSERT_EQ(-1, v);}	// should produce invalid overflow output
 
