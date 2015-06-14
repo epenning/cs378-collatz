@@ -15,7 +15,7 @@
 #include <utility>  // make_pair, pair
 #include <climits>	// INT_MAX
 
-#include "Collatz.h"
+#include "CollatzSimple.h"
 
 using namespace std;
 
