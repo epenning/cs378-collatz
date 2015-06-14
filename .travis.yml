@@ -44,5 +44,6 @@ script:
     - make test
     - make clean
     - make test CXX=clang++
+    - cat TestCollatz.out
     - ls -al
     - make check
