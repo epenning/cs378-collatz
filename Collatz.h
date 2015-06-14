@@ -45,7 +45,7 @@ int collatz_eval (int i, int j);
 
 /**
  * @param n the number for which to find the cycle length
- * @return the cycle length of n
+ * @return the cycle length of n, -1 if overflow because of invalid input
  */
 int cycle_length (int n);
 

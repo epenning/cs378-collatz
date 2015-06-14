@@ -35,12 +35,16 @@ pair<int, int> collatz_read (const string& s) {
 // ------------
 
 int collatz_eval (int i, int j) {
+	assert(i > 0);
+	assert(j > i);
     int max = 1;
     for (int k = i; k <= j; k++) {
     		int cycle = cycle_length(k);
     		if (cycle > max)
     			max = cycle;
     }
+    if (max != -1)	// as long as input isn't entirely invalid and overflowing
+    	assert(max > 0);
     return max;}
 
 // ------------
@@ -48,6 +52,7 @@ int collatz_eval (int i, int j) {
 // ------------
 
 int cycle_length (int n) {
+	assert(n > 0);
     int count = 1;
     while (n > 1) {
     	if (n % 2 == 1) {
@@ -62,6 +67,7 @@ int cycle_length (int n) {
     		n = n/2;
     	++count;
     }
+    assert(count > 0);
     return count;}
 
 
