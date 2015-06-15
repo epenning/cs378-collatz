@@ -19,10 +19,15 @@
 
 using namespace std;
 
+// toggle cache on and off
+#define CACHE
+
+#ifdef CACHE
 /**
  * Array cache of calculated cycle lengths from 1 to 1000000
  */
 static int cycle_lengths[1000000];
+#endif
 
 // ------------
 // collatz_read
@@ -58,9 +63,11 @@ int collatz_eval (int i, int j) {
 
 int cycle_length (int n) {
 	assert(n > 0);
+#ifdef CACHE
 	// check if cycle length of n is already in cache
 	if (cycle_lengths[n])
 		return cycle_lengths[n];
+#endif
     int count = 1;
     int m = n;
     while (m > 1) {
@@ -77,8 +84,10 @@ int cycle_length (int n) {
     	++count;
     }
     assert(count > 0);
+#ifdef CACHE
     // save cycle length of n in cache
     cycle_lengths[n] = count;
+#endif
     return count;}
 
 
