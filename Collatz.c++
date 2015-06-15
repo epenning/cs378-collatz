@@ -19,6 +19,11 @@
 
 using namespace std;
 
+/**
+ * Array cache of calculated cycle lengths from 1 to 1000000
+ */
+static int cycle_lengths[1000000];
+
 // ------------
 // collatz_read
 // ------------
@@ -53,21 +58,27 @@ int collatz_eval (int i, int j) {
 
 int cycle_length (int n) {
 	assert(n > 0);
+	// check if cycle length of n is already in cache
+	if (cycle_lengths[n])
+		return cycle_lengths[n];
     int count = 1;
-    while (n > 1) {
-    	if (n % 2 == 1) {
-    		// n is odd
-    		if (n > (INT_MAX - 1)/3)
+    int m = n;
+    while (m > 1) {
+    	if (m % 2 == 1) {
+    		// m is odd
+    		if (m > (INT_MAX - 1)/3)
     			// causes overflow, should be invalid input
     			return -1;	// produces an invalid output
-    		n = 3*n + 1;
+    		m = 3*m + 1;
     	}
     	else
-    		// n is even
-    		n = n/2;
+    		// m is even
+    		m = m/2;
     	++count;
     }
     assert(count > 0);
+    // save cycle length of n in cache
+    cycle_lengths[n] = count;
     return count;}
 
 
