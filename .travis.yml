@@ -47,3 +47,6 @@ script:
     - cat TestCollatz.out
     - ls -al
     - make check
+
+notifications:
+    email: false
