@@ -42,30 +42,6 @@ TEST(CollatzFixture, read_2) {
     ASSERT_EQ( 1, p.second);}
 
 // ----
-// eval
-// ----
-
-TEST(CollatzFixture, eval_1) {
-    const int v = collatz_eval(1, 10);
-    ASSERT_EQ(20, v);}
-
-TEST(CollatzFixture, eval_2) {
-    const int v = collatz_eval(100, 200);
-    ASSERT_EQ(125, v);}
-
-TEST(CollatzFixture, eval_3) {
-    const int v = collatz_eval(201, 210);
-    ASSERT_EQ(89, v);}
-
-TEST(CollatzFixture, eval_4) {
-    const int v = collatz_eval(900, 1000);
-    ASSERT_EQ(174, v);}
-
-TEST(CollatzFixture, eval_5) {
-    const int v = collatz_eval(1, 999999);
-    ASSERT_EQ(476, v);}	// actual is 525, but maximum valid (non-overflowing) is 476
-
-// ----
 // cycle_length
 // ----
 
@@ -92,6 +68,30 @@ TEST(CollatzFixture, cycle_length_5) {
 TEST(CollatzFixture, cycle_length_6) {
     const int v = cycle_length(837799);
     ASSERT_EQ(-1, v);}	// should produce invalid overflow output
+
+// ----
+// eval
+// ----
+
+TEST(CollatzFixture, eval_1) {
+    const int v = collatz_eval(1, 10);
+    ASSERT_EQ(20, v);}
+
+TEST(CollatzFixture, eval_2) {
+    const int v = collatz_eval(100, 200);
+    ASSERT_EQ(125, v);}
+
+TEST(CollatzFixture, eval_3) {
+    const int v = collatz_eval(201, 210);
+    ASSERT_EQ(89, v);}
+
+TEST(CollatzFixture, eval_4) {
+    const int v = collatz_eval(900, 1000);
+    ASSERT_EQ(174, v);}
+
+TEST(CollatzFixture, eval_5) {
+    const int v = collatz_eval(1, 999999);
+    ASSERT_EQ(476, v);}	// actual is 525, but maximum valid (non-overflowing) is 476
 
 // -----
 // print

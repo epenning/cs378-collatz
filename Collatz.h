@@ -29,6 +29,16 @@ using namespace std;
 pair<int, int> collatz_read (const string& s);
 
 // ------------
+// cycle_length
+// ------------
+
+/**
+ * @param n the number for which to find the cycle length
+ * @return the cycle length of n, -1 if overflow because of invalid input
+ */
+int cycle_length (int n);
+
+// ------------
 // collatz_eval
 // ------------
 
@@ -38,16 +48,6 @@ pair<int, int> collatz_read (const string& s);
  * @return the max cycle length of the range [i, j]
  */
 int collatz_eval (int i, int j);
-
-// ------------
-// cycle_length
-// ------------
-
-/**
- * @param n the number for which to find the cycle length
- * @return the cycle length of n, -1 if overflow because of invalid input
- */
-int cycle_length (int n);
 
 // -------------
 // collatz_print

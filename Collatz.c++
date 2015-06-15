@@ -4,6 +4,13 @@
 // Glenn P. Downing
 // ----------------------------
 
+// -------
+// defines
+// -------
+
+// toggle cache on and off
+#define CACHE 1
+
 // --------
 // includes
 // --------
@@ -18,9 +25,6 @@
 #include "Collatz.h"
 
 using namespace std;
-
-// toggle cache on and off
-#define CACHE
 
 #ifdef CACHE
 /**
@@ -39,23 +43,6 @@ pair<int, int> collatz_read (const string& s) {
     int j;
     sin >> i >> j;
     return make_pair(i, j);}
-
-// ------------
-// collatz_eval
-// ------------
-
-int collatz_eval (int i, int j) {
-	assert(i > 0);
-	assert(j >= i);
-    int max = 1;
-    for (int k = i; k <= j; k++) {
-    		int cycle = cycle_length(k);
-    		if (cycle > max)
-    			max = cycle;
-    }
-    if (max != -1)	// as long as input isn't entirely invalid and overflowing
-    	assert(max > 0);
-    return max;}
 
 // ------------
 // cycle_length
@@ -90,6 +77,22 @@ int cycle_length (int n) {
 #endif
     return count;}
 
+// ------------
+// collatz_eval
+// ------------
+
+int collatz_eval (int i, int j) {
+	assert(i > 0);
+	assert(j >= i);
+    int max = 1;
+    for (int k = i; k <= j; k++) {
+    		int cycle = cycle_length(k);
+    		if (cycle > max)
+    			max = cycle;
+    }
+    if (max != -1)	// as long as input isn't entirely invalid and overflowing
+    	assert(max > 0);
+    return max;}
 
 // -------------
 // collatz_print
