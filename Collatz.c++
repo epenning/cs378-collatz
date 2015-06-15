@@ -85,6 +85,9 @@ int collatz_eval (int i, int j) {
 	assert(i > 0);
 	assert(j >= i);
     int max = 1;
+    // optimization, top half of range cycle lengths > bottom half
+    if (i < (j/2 + 1))
+    	i = j/2 + 1;
     for (int k = i; k <= j; k++) {
     		int cycle = cycle_length(k);
     		if (cycle > max)
