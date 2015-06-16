@@ -1,0 +1,160 @@
+commit 2350914ce42112984f553723835f905da4c7ec4e
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Mon Jun 15 23:34:20 2015 -0500
+
+    changed EID in makefile to elp692
+
+commit a24425eee61e9bacd8680720df1aeb90c94c12b8
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Mon Jun 15 23:22:27 2015 -0500
+
+    enabled flags for cache and optimizations in makefile
+
+commit fbfe9cf7af5c48ce98f7b62ace68f8bfaca501d6
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Mon Jun 15 23:13:13 2015 -0500
+
+    readded SphereCollatz and updated gitignore
+
+commit 5ca4f9ace3249ae1242d3db24ed48959f79989e0
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Mon Jun 15 23:07:07 2015 -0500
+
+    removed extraneous files from git
+
+commit 9354a5e34f255a4953e6e2b60986828a6b0b0841
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Mon Jun 15 22:50:40 2015 -0500
+
+    edited gitignore, updated SphereCollatz, passes sphere test
+
+commit 52f417669ef86aede8017dec29237760430e71e7
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Mon Jun 15 22:37:38 2015 -0500
+
+    added optimization to cycle_length for combining two steps when n is odd
+
+commit fdee752a3d4baf7d98452eed1c62168e298121eb
+Merge: 8ccace1 bd0d880
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Mon Jun 15 22:16:18 2015 -0500
+
+    Merge remote-tracking branch 'origin/dev' into dev
+
+commit bd0d880ebd15d712091c4f9e0adaa7dc10b4cfd0
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Mon Jun 15 11:46:48 2015 -0500
+
+    changed email notifications setting
+
+commit 566f8bb08f984d4cf9b0ef75337e9b9b43f38e64
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Mon Jun 15 09:42:51 2015 -0500
+
+    travis now using g++, TestCollatz.out was using clang++
+
+commit 8ccace184bae90d088d297a86d6653e12b34751d
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 23:37:58 2015 -0500
+
+    optimization in collatz_eval for i < j/2 + 1
+
+commit 049553238baece28a43252181de25f9e323a572d
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Sun Jun 14 23:00:53 2015 -0500
+
+    valgrind not showing any memory leaks on cs machine
+
+commit abdfb9deeb224a69a082da9413d7bb6453b32f5c
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 22:19:12 2015 -0500
+
+    updated SphereCollatz, passes Sphere test, and reordered collatz_eval
+    and cycle_length
+
+commit fd81ffe482b5c6ba7c26e42dc3e42910de1238b5
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 22:04:05 2015 -0500
+
+    added preprocessor directives to Collatz to toggle the cache
+
+commit cefb54c642184b1993c41e4583330fb90a3772f3
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 20:18:57 2015 -0500
+
+    added a simple lazy cache to Collatz, populated and used when
+    cycle_length is called
+
+commit 05ce5ba7515bb7be2876c6c148d69c5da92fa6d0
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 13:38:26 2015 -0500
+
+    CollatzSimple is simplest solution, added >100 more acceptance tests to
+    RunCollatz.in and expected output in RunCollatzExpected.out
+
+commit 25f37b466783bcbdcfdaec440725afad3bd5845a
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 12:59:49 2015 -0500
+
+    created SphereCollatz which passes the Sphere test
+
+commit e7195546b4b46c5e554708b2f2703217cbf483c4
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 12:47:43 2015 -0500
+
+    fixed naming scheme in Testcollatz
+
+commit 6caf8fc05a3e69152242146762c859c52b20b575
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 12:43:09 2015 -0500
+
+    added unit tests for cycle_length
+
+commit 79af62cfee4d50fe34f617e1b41d884308afa759
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 12:31:45 2015 -0500
+
+    added validity asserts to collatz_eval and cycle_length
+
+commit 694c8926739bfbc8feeab17e890a3a7c5b999f7a
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 12:19:33 2015 -0500
+
+    edited unit tests so not overflowing, cycle_length returns -1 for
+    overflow, collatz_solve allows i > j
+
+commit d4b2af719a9048b474ef1e834504d0274cb127dc
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 11:50:07 2015 -0500
+
+    implemented simplest possible collatz_eval
+
+commit 6141a20e03cfd8651f18aa70d19bd58baaee2f57
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Sun Jun 14 11:34:49 2015 -0500
+
+    added more unit tests to TestCollatz
+
+commit 2cf3093b06ffd6d4357b8d359e69ece322138ca9
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Sat Jun 13 23:58:02 2015 -0500
+
+    added sudo: required to .travis.yml for Travis CI
+
+commit f855f5497226ec5441bb58fa5a89aede95a8ed32
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Sat Jun 13 23:54:49 2015 -0500
+
+    fixed given unit tests to correct actual solutions
+
+commit 03a679a76c77000de5a6d9b63e147e87bc8909d1
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Mon Jun 8 22:10:33 2015 -0500
+
+    copied class repo to dev branch, fix #7, fix #8, fix #9, fix #11
+
+commit a09dc3c3774708fa08309f1dc6b0ad94e34f4a7b
+Author: pieiscool <hashi10@gmail.com>
+Date:   Mon Jun 8 21:30:22 2015 -0500
+
+    Initial commit
