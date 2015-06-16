@@ -10,6 +10,8 @@
 
 // toggle cache on and off
 #define CACHE 1
+// toggle optimizations on and off
+#define OPTIMIZE 1
 
 // --------
 // includes
@@ -50,11 +52,11 @@ pair<int, int> collatz_read (const string& s) {
 
 int cycle_length (int n) {
 	assert(n > 0);
-#ifdef CACHE
+	#ifdef CACHE
 	// check if cycle length of n is already in cache
 	if (cycle_lengths[n])
 		return cycle_lengths[n];
-#endif
+	#endif
     int count = 1;
     int m = n;
     while (m > 1) {
@@ -63,18 +65,26 @@ int cycle_length (int n) {
     		if (m > (INT_MAX - 1)/3)
     			// causes overflow, should be invalid input
     			return -1;	// produces an invalid output
+			#ifdef OPTIMIZE
+    		// resulting number is always even, so combine two steps
+    		m = m + (m >> 1) + 1;
+    		count += 2;
+			#else
     		m = 3*m + 1;
+    		++count;
+			#endif
     	}
-    	else
+    	else {
     		// m is even
     		m = m/2;
-    	++count;
+    		++count;
+    	}
     }
     assert(count > 0);
-#ifdef CACHE
+	#ifdef CACHE
     // save cycle length of n in cache
     cycle_lengths[n] = count;
-#endif
+	#endif
     return count;}
 
 // ------------
@@ -85,9 +95,11 @@ int collatz_eval (int i, int j) {
 	assert(i > 0);
 	assert(j >= i);
     int max = 1;
+	#ifdef OPTIMIZE
     // optimization, top half of range cycle lengths > bottom half
     if (i < (j/2 + 1))
     	i = j/2 + 1;
+	#endif
     for (int k = i; k <= j; k++) {
     		int cycle = cycle_length(k);
     		if (cycle > max)
