@@ -43,8 +43,7 @@ script:
     - ls -al
     - make test
     - make clean
-    - make test
-    - cat TestCollatz.out
+    - make test CXX=clang++
     - ls -al
     - make check
 
