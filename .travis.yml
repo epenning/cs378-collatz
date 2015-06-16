@@ -43,7 +43,10 @@ script:
     - ls -al
     - make test
     - make clean
-    - make test CXX=clang++
+    - make test
     - cat TestCollatz.out
     - ls -al
     - make check
+
+notifications:
+    email: false
