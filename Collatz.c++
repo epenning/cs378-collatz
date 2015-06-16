@@ -9,9 +9,9 @@
 // -------
 
 // toggle cache on and off
-#define CACHE 1
+//#define CACHE 1
 // toggle optimizations on and off
-#define OPTIMIZE 1
+//#define OPTIMIZE 1
 
 // --------
 // includes

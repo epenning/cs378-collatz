@@ -23,7 +23,8 @@ else
     GCOV     := gcov-4.8
 endif
 
-CXXFLAGS := -pedantic -std=c++11 -Wall
+# flag -DCACHE for enabling cache, -DOPTIMIZE for enabling optimization
+CXXFLAGS := -pedantic -std=c++11 -Wall -DCACHE -DOPTIMIZE
 LDFLAGS  := -lgtest -lgtest_main -pthread
 VALGRIND := valgrind
 
@@ -63,10 +64,18 @@ Doxyfile:
 
 RunCollatz: Collatz.h Collatz.c++ RunCollatz.c++
 	$(CXX) $(CXXFLAGS) Collatz.c++ RunCollatz.c++ -o RunCollatz
+	
+winRunCollatz: Collatz.h Collatz.c++ RunCollatz.c++
+	g++ $(CXXFLAGS) Collatz.c++ RunCollatz.c++ -o RunCollatz.exe
 
 RunCollatz.out: RunCollatz
 	cat RunCollatz.in
 	./RunCollatz < RunCollatz.in > RunCollatz.out
+	cat RunCollatz.out
+	
+winRunCollatz.out: winRunCollatz
+	cat RunCollatz.in
+	./RunCollatz.exe < RunCollatz.in > RunCollatz.out
 	cat RunCollatz.out
 
 TestCollatz: Collatz.h Collatz.c++ TestCollatz.c++
